@@ -35,8 +35,8 @@ function generateCSSInjectionCode(files: string[], entryFileName: string) {
   return res.join('\n')
 }
 
-function injectCSS(fileBundle: FileBundle, output?: Output) {
-  const dirname = path.resolve(import.meta.url || __dirname, output?.dir ?? 'dist')
+function injectCSS(rootPath: string, fileBundle: FileBundle, output?: Output) {
+  const dirname = path.resolve(rootPath, output?.dir ?? 'dist')
   const filesOfDir = fs.readdirSync(dirname)
   const cssInjectionCode = generateCSSInjectionCode(filesOfDir, fileBundle.fileName)
   const entryFilePath = `${dirname}/${fileBundle.fileName}`
@@ -69,14 +69,14 @@ export default function vitePluginLibCSSInjection(): PluginOption {
             if (Array.isArray(rollupOptions.output)) {
               for (const output of rollupOptions.output) {
                 if (checkESM(output.format)) {
-                  injectCSS(fileBundle, output)
+                  injectCSS(resolvedConfig.root, fileBundle, output)
                 }
               }
             } else {
-              injectCSS(fileBundle, rollupOptions.output)
+              injectCSS(resolvedConfig.root, fileBundle, rollupOptions.output)
             }
           } else {
-            injectCSS(fileBundle)
+            injectCSS(resolvedConfig.root, fileBundle)
           }
         }
       }
