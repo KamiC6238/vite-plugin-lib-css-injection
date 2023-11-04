@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-lib-css-injection",
-  "version": "1.0.0",
-  "description": "An enhancement of [vite-plugin-libcss](https://github.com/wxsms/vite-plugin-libcss/tree/master)",
+  "version": "1.0.1",
+  "description": "A vite plugin that would inject the css file into your bundled js file.",
   "keywords": ["vite", "css", "plugin", "lib"],
   "author": "https://github.com/KamiC6238",
   "license": "MIT",
