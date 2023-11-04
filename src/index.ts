@@ -36,7 +36,7 @@ function generateCSSInjectionCode(files: string[], entryFileName: string) {
 }
 
 function injectCSS(fileBundle: FileBundle, output?: Output) {
-  const dirname = path.resolve(__dirname, output?.dir ?? 'dist')
+  const dirname = path.resolve(import.meta.url || __dirname, output?.dir ?? 'dist')
   const filesOfDir = fs.readdirSync(dirname)
   const cssInjectionCode = generateCSSInjectionCode(filesOfDir, fileBundle.fileName)
   const entryFilePath = `${dirname}/${fileBundle.fileName}`
