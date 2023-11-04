@@ -1,0 +1,36 @@
+{
+  "name": "vite-plugin-lib-css-injection",
+  "version": "1.0.0",
+  "description": "An enhancement of [vite-plugin-libcss](https://github.com/wxsms/vite-plugin-libcss/tree/master)",
+  "keywords": ["vite", "css", "plugin", "lib"],
+  "author": "https://github.com/KamiC6238",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KamiC6238/vite-plugin-lib-css-injection"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "unbuild"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@types/web": "^0.0.119",
+    "bun-types": "^1.0.8",
+    "typescript": "^5.2.2",
+    "unbuild": "^2.0.0",
+    "vite": "^4.5.0"
+  }
+}
