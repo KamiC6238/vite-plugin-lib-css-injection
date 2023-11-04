@@ -54,10 +54,10 @@ export default function vitePluginLibCSSInjection(): PluginOption {
       resolvedConfig = config
     },
     writeBundle(options, bundle) {
-      const files = Object.keys(bundle)
-
       if (!resolvedConfig?.build.lib) return
       if (!checkESM(options.format)) return
+
+      const files = Object.keys(bundle)
 
       for (const file of files) {
         const fileBundle = bundle[file]
