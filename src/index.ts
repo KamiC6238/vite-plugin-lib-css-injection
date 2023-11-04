@@ -50,6 +50,8 @@ export default function vitePluginLibCSSInjection(): PluginOption {
 
   return {
     name: 'vite-plugin-libcss-injection',
+    apply: 'build',
+    enforce: 'post',
     configResolved(config) {
       resolvedConfig = config
     },
