@@ -48,7 +48,7 @@ lib: {
   }
 }
 ```
-build result like:
+if `style.css` in `dist`, then build result like:
 ```javascript
 // dist/esm/index.js
 import "../style.css"
